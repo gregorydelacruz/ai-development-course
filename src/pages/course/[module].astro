@@ -1,0 +1,23 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const { module } = Astro.params;
+---
+
+<Layout title={`${module} | AI Web Development Course`}>
+  <main>
+    <h1>{module.replace(/-/g, ' ')}</h1>
+    <div class="lesson-content">
+      <p>Detailed lesson content coming soon...</p>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .lesson-content {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+  }
+</style>

@@ -1,0 +1,118 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/Card.astro';
+
+const courseModules = [
+  {
+    title: "Module 1: AI in Web Development",
+    description: "Understand AI's role in modern web apps",
+    lessons: 5,
+    duration: "2h 15m"
+  },
+  {
+    title: "Module 2: React Fundamentals",
+    description: "Master React components and state management",
+    lessons: 7,
+    duration: "3h 30m"
+  },
+  {
+    title: "Module 3: Node.js Backend",
+    description: "Build scalable APIs with Node.js",
+    lessons: 6,
+    duration: "3h"
+  },
+  {
+    title: "Module 4: AI API Integration",
+    description: "Integrate OpenAI, Gemini and other AI services",
+    lessons: 8,
+    duration: "4h"
+  },
+  {
+    title: "Module 5: Full-stack AI Apps",
+    description: "Build complete AI-powered web applications",
+    lessons: 10,
+    duration: "5h"
+  },
+  {
+    title: "Module 6: Deployment & Scaling",
+    description: "Deploy and optimize AI web apps",
+    lessons: 4,
+    duration: "2h"
+  }
+];
+---
+
+<Layout title="AI-Powered Web Development Course">
+  <main>
+    <h1>AI-Powered Web Development</h1>
+    <p class="course-description">
+      Master the art of building intelligent web applications using React, Node.js, and cutting-edge AI technologies.
+    </p>
+    
+    <div class="course-stats">
+      <div class="stat">
+        <span class="number">40</span>
+        <span class="label">Lessons</span>
+      </div>
+      <div class="stat">
+        <span class="number">20</span>
+        <span class="label">Projects</span>
+      </div>
+      <div class="stat">
+        <span class="number">15</span>
+        <span class="label">AI Tools</span>
+      </div>
+    </div>
+
+    <h2>Course Modules</h2>
+    <ul role="list" class="module-grid">
+      {courseModules.map(module => (
+        <Card
+          href={`/course/${module.title.toLowerCase().replace(/ /g, '-')}`}
+          title={module.title}
+          body={`${module.lessons} lessons | ${module.duration}`}
+        />
+      ))}
+    </ul>
+  </main>
+</Layout>
+
+<style>
+  .course-description {
+    font-size: 1.2rem;
+    margin: 2rem 0;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .course-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 3rem 0;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: rgb(var(--accent-light));
+  }
+
+  .label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .module-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0;
+  }
+</style>
